@@ -15,7 +15,7 @@ class Child extends Parent{
     }
 }
 
-public class JavaTests {
+public class runProg {
     
     public static void main(String[] args) {
         Parent p1 = new Parent();
