@@ -25,6 +25,14 @@ public class runProg {
             }
             else{
                 System.out.println("Connection created :)");
+
+                // create table
+                String q = "create table table1(tID int(20) primary key auto_increment, tName varchar(200) not null, tCity varchar(400))";
+                // create statement
+                Statement stmt = con.createStatement();
+                stmt.executeUpdate(q);
+                System.err.println("Table Created in database.");
+                con.close();
             }
         } catch (Exception e) {
             e.printStackTrace();
