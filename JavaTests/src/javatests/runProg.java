@@ -61,7 +61,7 @@ public class runProg {
         }
     }
     
-    public static void fileCharCopyFile(){
+    public static void fileCharCopyFile() {
         try {
             FileReader in = new FileReader("input.txt");
             FileWriter out = new FileWriter("output.txt");
@@ -78,7 +78,7 @@ public class runProg {
         }
     }
     
-    public static void fileCharReadWrite(){
+    public static void fileCharReadWrite() {
         try {
             FileWriter writer = new FileWriter("write.txt");
             writer.write("line-1\nline number @2\nthis will be the last line!");
@@ -97,11 +97,37 @@ public class runProg {
         }
     }
 
+    public static void fileRandAcc() {
+        try {
+            RandomAccessFile raf = new RandomAccessFile("write.txt", "rw");
+            
+            raf.writeUTF("Hello World");
+            raf.writeUTF("Hi");
+            
+            raf.seek(0);
+            System.out.println(raf.readUTF());
+            
+            long pos = raf.getFilePointer();
+            System.out.println("Current position: " + pos);
+            System.out.println(raf.readUTF());
+            
+            raf.seek(0);
+            System.out.println(raf.readUTF());
+            raf.seek(13);
+            System.out.println(raf.readUTF());
+
+            raf.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
         // inheritance();
         // dbcon();
         // fileByte();
         // fileCharCopyFile();
-        fileCharReadWrite();
+        // fileCharReadWrite();
+        // fileRandAcc();
     }   
 }
