@@ -1,8 +1,10 @@
 package javatests;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+// import java.io.FileInputStream;
+// import java.io.FileOutputStream;
+// import java.io.FileWriter;
+// import java.io.IOException;
+import java.io.*;
 import java.sql.*;
 
 public class runProg {
@@ -49,7 +51,7 @@ public class runProg {
             int data;
             while ((data = in.read()) != -1) {
                 out.write(data);
-                System.out.println(in.read());
+                System.out.println(data);
             }
             in.close();
             out.close();
@@ -59,7 +61,32 @@ public class runProg {
         }
     }
     
+    public static void fileCharCopyFile(){
+        try {
+            FileReader in = new FileReader("input.txt");
+            FileWriter out = new FileWriter("output.txt");
+            int data;
+            while ((data = in.read()) != -1) {
+                out.write(data);
+                System.out.println(data);
+            }
+            in.close();
+            out.close();
+        }
+        catch (IOException e) {
+            System.out.println(e);
+        }
+    }
+
+    public static void fileCharReadWrite(){
+        
+    }
+
     public static void main(String[] args) {
-        fileByte();
+        // inheritance();
+        // dbcon();
+        // fileByte();
+        // fileCharCopyFile();
+
     }   
 }
