@@ -77,9 +77,24 @@ public class runProg {
             System.out.println(e);
         }
     }
-
+    
     public static void fileCharReadWrite(){
-        
+        try {
+            FileWriter writer = new FileWriter("write.txt");
+            writer.write("line-1\nline number @2\nthis will be the last line!");
+            writer.close();
+            
+            FileReader fr = new FileReader("write.txt");
+            char[] a = new char[50];
+            fr.read(a);
+            for (char c : a) {
+                System.out.println(c);
+            }
+            fr.close();
+        }
+        catch (IOException e) {
+            System.out.println(e);
+        }
     }
 
     public static void main(String[] args) {
@@ -87,6 +102,6 @@ public class runProg {
         // dbcon();
         // fileByte();
         // fileCharCopyFile();
-
+        fileCharReadWrite();
     }   
 }
