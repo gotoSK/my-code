@@ -2,6 +2,7 @@ package javatests;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.*;
 
 public class runProg {
@@ -45,16 +46,15 @@ public class runProg {
         try {
             FileInputStream in = new FileInputStream("input.txt");
             FileOutputStream out = new FileOutputStream("output.txt");
-
-            while (in.read() != -1) {
-                out.write(in.read());
+            int data;
+            while ((data = in.read()) != -1) {
+                out.write(data);
                 System.out.println(in.read());
             }
-
             in.close();
             out.close();
         }
-        catch (Exception e) {
+        catch (IOException e){
             System.out.println(e);
         }
     }
