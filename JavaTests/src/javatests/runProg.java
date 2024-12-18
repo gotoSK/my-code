@@ -1,9 +1,11 @@
 package javatests;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.sql.*;
 
 public class runProg {
-    public static void inheritance(){
+    public static void inheritance() {
         Parent p1 = new Parent();
         Child c1 = new Child();
         c1.name();
@@ -12,7 +14,7 @@ public class runProg {
         c1.sign();        
     }
 
-    public static void dbcon(){
+    public static void dbcon() {
         try {
             // load driver
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -20,10 +22,10 @@ public class runProg {
             // creating connection
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db1", "root", "12345");
     
-            if(con.isClosed()){
+            if(con.isClosed()) {
                 System.out.println("Connection closed!");
             }
-            else{
+            else {
                 System.out.println("Connection created :)");
     
                 // create table
@@ -38,7 +40,26 @@ public class runProg {
             e.printStackTrace();
         }
     }
+
+    public static void fileByte() {
+        try {
+            FileInputStream in = new FileInputStream("input.txt");
+            FileOutputStream out = new FileOutputStream("output.txt");
+
+            while (in.read() != -1) {
+                out.write(in.read());
+                System.out.println(in.read());
+            }
+
+            in.close();
+            out.close();
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+    }
     
     public static void main(String[] args) {
+        fileByte();
     }   
 }
