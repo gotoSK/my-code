@@ -121,8 +121,35 @@ public class runProg {
             e.printStackTrace();
         }
     }
-
     
+    public static void fileObj() {
+        Person p1 = new Person("Sugam Karki", 22, "M");
+        Person p2 = new Person("Lionel Messi", 37, "M");
+
+        try {
+            FileOutputStream fos = new FileOutputStream(new File("objects.txt"));
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            
+            oos.writeObject(p1);
+            oos.writeObject(p2);
+            oos.close();
+            fos.close();
+            
+            FileInputStream fis = new FileInputStream(new File("objects.txt"));
+            ObjectInputStream ois = new ObjectInputStream(fis);
+
+            Person pr1 = (Person) ois.readObject();
+            Person pr2 = (Person) ois.readObject();
+            System.out.println(pr1.toString());
+            System.out.println(pr2.toString());
+            ois.close();
+            fis.close();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
     public static void main(String[] args) {
         // inheritance();
         // dbcon();
@@ -130,5 +157,6 @@ public class runProg {
         // fileCharCopyFile();
         // fileCharReadWrite();
         // fileRandAcc();
+        fileObj();
     }   
 }
