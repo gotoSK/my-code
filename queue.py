@@ -2,7 +2,7 @@ SIZE = 5
 
 class Queue:
     def __init__(self):
-        self.queue = [0] * SIZE
+        self.queue = [None] * SIZE
         self.front = 0
         self.rare = -1
     
@@ -17,7 +17,7 @@ class Queue:
         if self.is_empty():
             print("Underflow!")
         else:
-            self.queue[self.front] = 0
+            self.queue[self.front] = None
             self.front += 1
     
     def is_full(self):
@@ -43,6 +43,7 @@ class Queue:
 if __name__ == "__main__":
     q = Queue()
     q.display()
+    q.dequeue()
     q.enqueue(1)
     q.enqueue(2)
     q.enqueue(3)
