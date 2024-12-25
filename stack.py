@@ -27,13 +27,14 @@ class Stack:
         return self.top < 1
     
     def display(self):
+        print("----")
+        # itterating from top of the stack
         for i in range(self.top, -1, -1):
-            # print(self.top, self.stack[self.top], self.stack[i])
-            # print("here", self.stack[i])
             if self.stack[i] == 0:
                 break
             else:
                 print(self.stack[i])
+        print("----")
     
 if __name__ == "__main__":
     s = Stack()
