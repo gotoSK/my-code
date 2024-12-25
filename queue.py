@@ -30,12 +30,9 @@ class Queue:
         print("----")
         # traversing queue
         i = self.front
-        while True:
-            if i <= self.rare:
-                print(self.queue[i])
-                i += 1
-            else:
-                break
+        while i <= self.rare:
+            print(self.queue[i])
+            i += 1
         print("----")
 
 
