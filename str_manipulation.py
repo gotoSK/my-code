@@ -2,15 +2,17 @@
 
 inp = input("Enter a string: ")
 
+# other necessities
 steps = 2
-temp = [None] * len(inp)
 str_len = len(inp)
 
-# processing
-for i in range(0, str_len):
-    temp[(i+steps) % str_len] = inp[i]
+# Processing
+temp = [None] * str_len
+for i in range(str_len):
+    temp[(i + steps) % str_len] = inp[i]
 
-inp = temp.copy()
-temp = []
+# Convert list back to a string
+result = ''.join(temp)
 
-print("Output: ", inp)
+# Output
+print("Output:", result)
