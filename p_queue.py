@@ -35,9 +35,9 @@ if __name__ == "__main__":
     pp = PQueue();
     print(pp)
     pp.dequeue()
-    pp.enqueue(1, 4)
-    pp.enqueue(2, 1)
-    pp.enqueue(3, 3)
+    pp.enqueue(1, 1)
+    pp.enqueue(2, 3)
+    pp.enqueue(3, 4)
     pp.enqueue(4, 2)
     print(pp)
     pp.dequeue()
